@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block title%}Share a post{%endblock%}
+{% block content %}
+    <h2>Share "{{ post.title }}" by e-mail</h2>
+    {% if sent %}
+        <h2>Email successfully sent</h2>
+        <p>"{{post.title}}" was successfully sent to {{form.cleaned_data.to}}</p>
+        <a href="{{post.get_absolute_url}}" class="text-decoration-none"><--Go Back</a>
+    {% else %}
+    <form action="" method="POST" class="form">
+        {% csrf_token %}   
+        <div class="col-md-4">
+        {% for field in form %}
+            {{field.errors}} <br>
+            {{field.label_tag}} <br> {{field}}
+        {% endfor %}        
+        <br>
+        <input type="submit" value="Send E-mail" class="btn-primary">
+    </div>
+    </form>
+    {% endif %}
+
+{% endblock content %}
