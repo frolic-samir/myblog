@@ -125,6 +125,6 @@ STATIC_ROOT = BASE_DIR / 'staticfilescollection'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER	= 'samir.manbajracharya64@gmail.com'
-EMAIL_HOST_PASSWORD	= 'myluv_foru64@gmail'
+EMAIL_HOST_PASSWORD	= '***'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
