@@ -3,37 +3,35 @@
 {% block content %}
     <h1>{{	post.title	}}</h1>
     <p	class="date">
-        Published {{ post.publish }} by	{{ post.author }}
+        Last Updated : {{ post.publish|date:'d b Y' }}
     </p>
-    {{ post.body|linebreaks }}
+    <p class="pt-2">
+        {{ post.body|linebreaks }}
+    </p>
+    
 
-    <hr>
-    {% with comments.count as  total_comment%}
+    <hr class="my-4">
+    <!-- {% with comments.count as  total_comment%}
         <h4>{{total_comment}} Comment{{total_comment|pluralize}}:</h4>      
-    {% endwith %}
+    {% endwith %} -->
+    <p class="h5">Comments</p>
     {% for comment in comments %}
-        <div>
-            <strong>{{comment.name}}</strong> 
-            <p>{{comment.body}}</p>
-            <small>{{comment.updated}}</small>
+        <div >
+            <strong><small>{{comment.user}}</small></strong> 
+            <p style="margin: 0; padding-bottom:5px; padding-left:20px;">{{comment.body}}</p>
+            <small>{{comment.updated|date:'Y b d'}}</small>
             <hr>
         </div>
     {% empty %}
         <p>There are no comments yet.</p>
     {% endfor %}
-    
-    {% if new_comment %}
-        <p>Your comment has been added.</p>
-    {% else %}
+
     <form action="" method="POST" class="mb-3">
         {% csrf_token %}
-        {% for field in form %}
-            {{field.errors}} <br>
-            {{field.label_tag}} <br>
-            {{field}} 
-        {% endfor %}
-        <br>
-        <input type="submit" value="ADD COMMENT">
+          <div class="mb-3">
+            <textarea class="form-control" name="exampleFormControlTextarea1" id="exampleFormControlTextarea1" rows="3" placeholder="Your comment here..."></textarea>
+          </div>
+        <button type="submit" class="btn btn-outline-success">Post Comment</button>
+
     </form>
-    {% endif %}
 {% endblock content %}

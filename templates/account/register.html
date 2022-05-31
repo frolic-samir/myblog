@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mt-5">
+   <div class="col-md-4 mx-auto">
+       <div class="card card-body">
+           <h5 class='text-center display-6'>New Account</h5>
+           <form method="post" class='form mt-4'>
+               {% csrf_token %}
+                   {{form.email.label}}
+                   {{form.email}}
+                   {{form.password1.label}}
+                   {{form.password1}}
+                   {{form.password2.label}}
+                   {{form.password2}}
+               <input type="submit" value="Register" class='btn btn-primary btn-sm mt-2 mb-2'>
+           </form>
+           <small>Already have an account? <a  class=" ml-2 text-decoration-none" href="{% url 'account:login' %}">Sign In</a></small>
+       </div>
+   </div>
+</div>
+{% endblock %}

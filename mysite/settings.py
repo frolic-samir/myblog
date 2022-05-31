@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,8 +124,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfilescollection'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER	= 'samir.manbajracharya64@gmail.com'
-EMAIL_HOST_PASSWORD	= '***'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER	= '***'
+# EMAIL_HOST_PASSWORD	= '***'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True

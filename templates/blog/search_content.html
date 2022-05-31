@@ -2,7 +2,7 @@
 {%block title%}BlogPost{%endblock%}
 {% block content %}
     {% if posts %}
-    {% for post	in posts %}
+    {% for post in posts %}
     <div class="mb-4">
         <p class="h4 ">
             <a class="text-decoration-none" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
