@@ -15,10 +15,7 @@
                 {% endfor %}
                 <form method="post" class='form'>
                     {% csrf_token %}
-                    <label>Username</label>
-                    <input type="text" name='username' class='form-control form-control-sm mt-1 mb-2' required>
-                    <label>Username</label>
-                    <input type="password" name='password' class='form-control form-control-sm mt-1 mb-2' required>
+                    {{ form.as_p }}
                     <input type="submit" value="Login" class='btn btn-primary btn-sm mt-1 mb-3'>
                 </form>
                 <small>Need an account? <a href="{% url 'account:register' %}" class=" ml-2 text-decoration-none">Sign Up</a></small>

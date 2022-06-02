@@ -4,7 +4,10 @@
    <div class="col-md-4 mx-auto">
        <div class="card card-body">
            <h5 class='text-center display-6'>New Account</h5>
-           <form method="post" class='form mt-4'>
+           {% for message in messages %}
+           <p class="text-danger mt-2 mb-0">{{message}}</p>
+           {% endfor %}
+           <form method="post" class='form mt-1'>
                {% csrf_token %}
                    {{form.email.label}}
                    {{form.email}}

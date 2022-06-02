@@ -42,7 +42,7 @@ def post_detail(request,year,month,day,post):
     return render(request,'blog/post_detail.html',context)
 
 def searchContent(request):
-    data = request.GET.get('searchdata')
+    data = request.GET.get('q')
     search_posts = Post.objects.filter(title__icontains=data)
     paginator=Paginator(search_posts,3) #No of post per page
     page=request.GET.get('page')

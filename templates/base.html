@@ -10,20 +10,27 @@
     <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand ps-4" href="{% url 'blog:blog_list' %}">BlogPost</a>
-        <div class="d-flex">
-        <form class="d-flex" role="search" action="{% url 'blog:search_content' %}">
-          <input class="form-control me-2" name='searchdata' type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-primary btn-sm" type="submit">Search</button>
-        </form>
-        {% if user.is_authenticated %}
-          <form action="{% url 'account:logout' %}">
-            <button class="btn btn-secondary ms-2">Sign Out</button>
-          </form>
-        {% else %}
-          <form action="{% url 'account:login' %}">
-            <button class="btn btn-secondary ms-2">Sign In</button>
-          </form>
-        {% endif %}
+        <div class="">
+          <div class="d-flex">
+            <form class="d-flex" role="search" action="{% url 'blog:search_content' %}">
+              <input class="form-control me-2" name='q' type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-primary btn-sm" type="submit">Search</button>
+            </form>
+            {% if user.is_authenticated %}
+              <form action="{% url 'account:logout' %}">
+                <button class="btn btn-secondary ms-2">Sign Out</button>
+              </form>
+            {% else %}
+              <form action="{% url 'account:login' %}">
+                <button class="btn btn-secondary ms-2">Sign In</button>
+              </form>
+            {% endif %}
+          </div>
+          <div>
+              {% if user.is_authenticated %}
+              <p class='mb-0' style="text-align:right; color:white"><small>{{ user }}</small></p>
+              {% endif %}
+            </div>
       </div>
       </div>
     </nav>
